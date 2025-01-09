@@ -34,7 +34,6 @@ jobs:
         # this command finds the js file in the assets folder and execute the echo command to get the file name
         #script-file= the name of your output. This should be the same name provided under the output section
         # $GITHUB_OUTPUT this is a standard variable and should be used for any output
-      - name: Upload artifacts
         id: publish # this id field is necessary when using steps context
         run: find dist/assets/*.js -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';' #script-file= the name of your output
       - name: Upload artifacts
