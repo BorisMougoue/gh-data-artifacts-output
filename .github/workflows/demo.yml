@@ -35,14 +35,7 @@ jobs:
          # path: |  # where to find the files that should be stored or what to upload
          #   dist
          #   package.json
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4 # this action upload the output of this job
-        with:
-          name: dist-files # name of the artifact to upload
-          path: dist
-         # path: |  # where to find the files that should be stored or what to upload
-         #   dist
-         #   package.json
+     
   deploy:
     needs: build
     runs-on: ubuntu-latest
