@@ -13,8 +13,8 @@ jobs:
         uses: actions/cache@v4  # cache action
         with:
           path: ~/.npm # this is the path used by the npm tool to cache folder. path to the folder that should be cached
-          key: deps-node-modules-${{hasFiles('**/package-lock.json')}}
-                # the hasFiles produices a unique value whenenver the path passed to it changes
+          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+                # the hashFiles produices a unique value whenenver the path passed to it changes
                 # this key will be use to retrieve the cache; we assign a dynamic name to the key
                  # incase the dependencies in the package-lock.json change, the key will change and the  cache will not be use anymore
                  # the dependencies will be install again if the key changes
@@ -39,7 +39,7 @@ jobs:
         uses: actions/cache@v4  # cache action
         with:
           path: ~/.npm # this is the path used by the npm tool to cache folder. path to the folder that should be cached
-          key: deps-node-modules-${{hasFiles('**/package-lock.json')}}
+          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
       - name: Build website
